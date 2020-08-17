@@ -1,0 +1,86 @@
+<div class="search">
+  <div class="searchitem first" > <strong> Find dit værelse</strong>Hvor vil du hen og hvornår vil du det?</div>
+  <div class="searchitem city">Destination: <br>
+    <select #city>
+    <option value="" disabled selected>Vælg destination</option>
+    <ng-container *ngFor="let city of country1.items;">
+      <option value="{{city.id}}"> {{city.name}}</option>
+    </ng-container>
+    <ng-container *ngFor="let city of country2.items;">
+      <option value="{{city.id}}"> {{city.name}}</option>
+    </ng-container>
+    <ng-container *ngFor="let city of country3.items;">
+      <option value="{{city.id}}"> {{city.name}}</option>
+    </ng-container>
+    <ng-container *ngFor="let city of country4.items;">
+      <option value="{{city.id}}"> {{city.name}}</option>
+    </ng-container>
+    <ng-container *ngFor="let city of country5.items;">
+      <option value="{{city.id}}"> {{city.name}}</option>
+    </ng-container>
+    <ng-container *ngFor="let city of country6.items;">
+      <option value="{{city.id}}"> {{city.name}}</option>
+    </ng-container>
+    <ng-container *ngFor="let city of country7.items;">
+      <option value="{{city.id}}"> {{city.name}}</option>
+    </ng-container>
+  </select></div>
+  <div class="searchitem">Check-in: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Check-out: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Antal personer: <br><select #num>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+  </select></div>
+  <div class="searchitem"><button (click)="goToSearchPage(city.value, num.value)" >Søg</button></div>
+</div>
+<div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <img src="../../assets/slide1.jpg">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="../../assets/slide2.jpg">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="../../assets/slide3.jpg">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  <div class="header"><h2>VELKOMMEN TIL HOTEL OVERLOOK ONLINE</h2></div>
+  </div>
+  <main>
+   <strong> <h2 class="header2">Se vores nyheder</h2></strong>
+    <div class="newsgrid" *ngIf="news">
+      <div *ngFor="let news of news.items; let i=index">
+      <div class="news" *ngIf="i<3" (click)="goToNewsPage(news.id)">
+        <img src="{{news.image}}" alt="News image">
+          <p class="title">{{news.title}}</p>
+          <p class="teaser">{{ news.teaser}}</p>
+      </div>
+    </div>
+    </div>
+    <strong> <h2 class="header2">Udvalgte værelser</h2></strong>
+    <div class="roomgrid" *ngIf="rooms">
+      <div *ngFor="let room of rooms.items; let i=index">
+      <div class="rooms" *ngIf="i<3" (click)="goToRoomPage(room.id)">
+        <img src="{{room.images[0].image}}" alt="Room image">
+          <p class="title">{{room.room_title}}</p>
+          <p class="teaser">{{ room.description}}</p>
+      </div>
+    </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footergrid">
+      <div class="copy">© 2020 Hotel Overlook. Alle Rettigheder forbeholdt</div>
+      <div id="social">
+        <a class="facebookBtn smGlobalBtn" href="#" ></a>
+        <a class="twitterBtn smGlobalBtn" href="#" ></a>
+      </div>
+      <div class="links"><p>Hoteller og Destinationer  </p> <p> Værelser </p> <p> Reservation </p> <p> Om Overlook </p> </div>
+    </div>
+  </footer>

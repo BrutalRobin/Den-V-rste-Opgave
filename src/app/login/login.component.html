@@ -1,0 +1,40 @@
+<div class="search">
+  <div class="searchitem first" > <strong> Find dit værelse</strong>Hvor vil du hen og hvornår vil du det?</div>
+  <div class="searchitem">Destination: <br><select>
+    <option value="" disabled selected>Vælg destination</option>
+      <option>Danmark</option>
+      <option>Sverige</option>
+      <option>Norge</option>
+      <option>Island</option>
+      <option>Finland</option>
+      <option>Tyskland</option>
+      <option>Polen</option>
+  </select></div>
+  <div class="searchitem">Check-in: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Check-out: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Antal personer: <br><select>
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+  </select></div>
+  <div class="searchitem"><button>Søg</button></div>
+</div>
+<img class="heroimage" src="../../assets/overlook-victoria.jpg" alt="countryimage">
+<main>
+  <h4>Hotel Overlook > Login</h4>
+  <strong> <h2 class="header2">Login</h2></strong>
+  <div class="desc"><p>Her kan du logge ind og administrere dine reservationer.</p></div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <label class="username-label" for="username">Brugernavn:<span class="red">*</span></label>
+    <input (focus)="focus()" type="text" name="username" id="username" formControlName="username" placeholder="Indtast dit brugernavn" />
+    <label class="password-label" for="password">Adgangskode:<span class="red">*</span></label>
+    <input (focus)="focus()" type="password" name="password" id="password" formControlName="password" placeholder="Indtast din adgangskode" />
+    <button type="login">Login</button><button class="button2" type="login">Annuler</button>
+    <p class="error"></p>
+  </form>
+</main>

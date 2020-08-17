@@ -1,0 +1,25 @@
+<div id="reservationer">
+  <div *ngFor="let res of reservationer.items;">
+  <div class="booking">
+    <div class="info">
+      <p>Hotel og værelsestype</p>
+     <strong> <p>{{res.hotel_title}}</p></strong>
+    <strong> <p>{{res.room_title}}</p></strong>
+    </div>
+    <div class="dato">
+      <p>Dato</p>
+      <strong> <p>{{res.checkin_date}}</p></strong>
+      <strong> <p>{{res.checkout_date}}</p></strong>
+    </div>
+    <div class="antal">
+      <p>Antal personer</p>
+    <strong> <p>{{res.num_persons}}</p></strong>
+  </div>
+    <div class="handling">
+      <p>Handling</p>
+      <p class="redi">Rediger</p>
+      <p class="slet" (click)="deleteIt(res.id)">Slet</p>
+    </div>
+  </div>
+  </div>
+</div>

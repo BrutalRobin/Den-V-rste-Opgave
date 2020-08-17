@@ -1,0 +1,90 @@
+<div class="search">
+  <div class="searchitem first" > <strong> Find dit værelse</strong>Hvor vil du hen og hvornår vil du det?</div>
+  <div class="searchitem">Destination: <br><select>
+    <option value="" disabled selected>Vælg destination</option>
+      <option>Danmark</option>
+      <option>Sverige</option>
+      <option>Norge</option>
+      <option>Island</option>
+      <option>Finland</option>
+      <option>Tyskland</option>
+      <option>Polen</option>
+  </select></div>
+  <div class="searchitem">Check-in: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Check-out: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Antal personer: <br><select>
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+  </select></div>
+  <div class="searchitem"><button>Søg</button></div>
+</div>
+<img class="heroimage" src="../../assets/overlook-seurahuone.jpg" alt="countryimage">
+<div class="header"><h2>RESERVATIONER</h2></div>
+<main>
+  <div class="pagegrid">
+  <div class="form">
+  <h4>Hotel Overlook > Reservation > Reserver dit foretrukne værelse</h4>
+  <strong> <h2 class="header2">Reserver dit foretrukne værelse</h2></strong>
+  <div class="desc"><p>Her kan du vælge destination, hotel og værelsestype og gennemføre din Overlook booking.</p></div>
+  <form [formGroup]="koebForm" (ngSubmit)="onSubmit()" class="login-form">
+  <p>{{hotel.item.title}}</p>
+  <p>{{room.item.title}}</p>
+  <label class="container">type</label>
+  <select formControlName="værelsestype">
+      <option value="1"> værelse</option>
+</select>
+<label class="container">personer</label>
+  <select formControlName="antalperson">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+</select>
+<label for="noflex">Noflex
+<input type="radio" name="flex" checked="checked" id="noflex" value="0" formControlName="flex"></label>
+<label for="noflex">flex
+<input type="radio" name="flex"  id="flex" value="1" formControlName="flex"></label>
+<div class="searchitem">Check-in: <br> <input type="date" id="checkin" formControlName="checkin"></div>
+<div class="searchitem">Check-out: <br> <input type="date" id="Check-out" formControlName="checkout"></div>
+    <label class="username-label" for="username">Fornavn<span class="red">*</span></label>
+    <input (focus)="focus()" type="text" name="username" id="username" formControlName="username" placeholder="Indtast dit fornavn" />
+    <label class="password-label" for="password">Efternavn<span class="red">*</span></label>
+    <input (focus)="focus()" type="text" name="password" id="password" formControlName="lastName" placeholder="Indtast din efternavn" />
+    <label class="password-label" for="password">Email:<span class="red">*</span></label>
+    <input (focus)="focus()" type="text" name="password" id="email" formControlName="email" placeholder="Indtast din email" />
+    <label class="password-label" for="password">Email:<span class="red">*</span></label>
+    <input (focus)="focus()" type="text" name="password" id="pass" formControlName="password" placeholder="adgangskode" />
+    <label class="password-label" for="password">Email:<span class="red">*</span></label>
+    <input (focus)="focus()" type="text" name="password" id="passw" formControlName="password" placeholder="adgangskode" />
+    <label class="password-label" for="password">Telefon<span class="red">*</span></label>
+    <input (focus)="focus()" type="text" name="password" id="phone" formControlName="phone" placeholder="telefon" />
+    <label class="password-label" for="password">comment<span class="red">*</span></label>
+    <input (focus)="focus()" type="text" name="password" id="password" formControlName="comment" placeholder="besked" />
+    <label class="container">accepter
+      <input type="checkbox" checked="checked">
+      <span class="checkmark"></span>
+    </label>
+    <button type="login">Send reservation</button><button class="button2" type="login">Annuler</button>
+    <p class="error"></p>
+  </form>
+  </div>
+  <div class="meeen"><h4>Betingelser</h4>
+    <p> Reduceret pris - spar op til 25%.</p>
+    <p> Kan kun bookes online via Overlook website app.</p>
+    <p> Bestil helt op til og med ankomstdagen.</p>
+    <p> Bookinger tilbagebetales ikke og kan ikke ændres eller annulleres.</p>
+    <p> Beløbet debiteres kreditkort på reservationstidspunktet.</p>
+    <p> Morgenmad er inkluderet</p>
+  </div>
+  </div>
+</main>

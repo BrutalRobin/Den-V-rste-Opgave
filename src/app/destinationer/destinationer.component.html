@@ -1,0 +1,47 @@
+<div class="search">
+  <div class="searchitem first" > <strong> Find dit værelse</strong>Hvor vil du hen og hvornår vil du det?</div>
+  <div class="searchitem">Destination: <br><select>
+    <option value="" disabled selected>Vælg destination</option>
+      <option>Danmark</option>
+      <option>Sverige</option>
+      <option>Norge</option>
+      <option>Island</option>
+      <option>Finland</option>
+      <option>Tyskland</option>
+      <option>Polen</option>
+  </select></div>
+  <div class="searchitem">Check-in: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Check-out: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Antal personer: <br><select>
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+  </select></div>
+  <div class="searchitem"><button>Søg</button></div>
+</div>
+<img class="heroimage" src="{{citys.item.image}}" alt="countryimage">
+<div class="header"><h2>HOTELLER OG DESTINATIONER</h2></div>
+<nav class="countrynav">
+  <div *ngFor="let country of countries.items; let i=index">
+    <div class="country" (click)="refreshCities(country.id)" >{{country.name}}</div>
+   </div>
+</nav>
+<main>
+  <h4> <span routerLink="/forside">Hotel Overlook</span> > <span routerLink="/distinationer/1">Hoteller og Destinationer</span> > {{citys.item.name}}</h4>
+  <strong> <h2 class="header2">Vores hoteller i {{citys.item.name}}</h2></strong>
+  <div class="desc"><p>{{citys.item.description}}</p></div>
+  <div class="citygrid" *ngIf="citys">
+    <div *ngFor="let city of citys.item.cities.items; let i=index">
+    <div class="city" *ngIf="i<3" (click)="goToCityPage(city.id, citys.item.id)">
+      <img src="{{city.image}}" alt="City image">
+        <p class="title">{{city.name}}</p>
+        <p class="teaser">{{ city.description}}</p>
+    </div>
+  </div>
+  </div>
+</main>

@@ -1,0 +1,61 @@
+<div class="search">
+  <div class="searchitem first" > <strong> Find dit værelse</strong>Hvor vil du hen og hvornår vil du det?</div>
+  <div class="searchitem">Destination: <br><select>
+    <option value="" disabled selected>Vælg destination</option>
+      <option>Danmark</option>
+      <option>Sverige</option>
+      <option>Norge</option>
+      <option>Island</option>
+      <option>Finland</option>
+      <option>Tyskland</option>
+      <option>Polen</option>
+  </select></div>
+  <div class="searchitem">Check-in: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Check-out: <br> <input type="date" id="birthday" name="birthday"></div>
+  <div class="searchitem">Antal personer: <br><select>
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+  </select></div>
+  <div class="searchitem"><button>Søg</button></div>
+</div>
+<img class="heroimage" src="{{hotels.item.image}}" alt="countryimage">
+<div class="header"><h2>HOTELLER OG DESTINATIONER</h2></div>
+<nav class="countrynav">
+  <div *ngFor="let country of countries.items; let i=index">
+    <div class="country" routerLink="/distinationer/{{country.id}}">{{country.name}}</div>
+   </div>
+</nav>
+<main>
+  <div class="pagegrid">
+    <div class="pagecontent">
+  <h4> <span routerLink="/forside">Hotel Overlook</span> > <span routerLink="/distinationer/1">Hoteller og Destinationer</span> > <span routerLink="/distinationer/{{hotels.item.country_id}}">{{hotels.item.country_name}}</span> > {{hotels.item.name}}</h4>
+  <strong> <h2 class="header2">Vores hoteller i {{hotels.item.name}}</h2></strong>
+  <div class="desc"><p>{{hotels.item.description}}</p></div>
+  <div class="citygrid" *ngIf="hotels">
+    <div *ngFor="let hotel of hotels.item.hotels.items; let i=index">
+    <div class="city" (click)="goToHotelPage(hotel.id, hotels.item.country_id)">
+      <img src="{{hotel.image}}" alt="City image">
+        <p class="title">{{hotel.title}}</p>
+        <div class="stars">
+        <div class="stars" *ngFor="let dummy of ' '.repeat(hotel.num_stars).split(''), let x = index">
+         <img src="../../assets/star-images-9454.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="cities">
+  <h4>Se andre byer</h4>
+  <div *ngFor="let city of country.item.cities.items; let i=index">
+    <p class="city" (click)="refreshCities(city.id)">{{city.name}}</p>
+   </div>
+</div>
+</div>
+</main>

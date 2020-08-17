@@ -1,0 +1,67 @@
+<img class="heroimage" src="{{hotel.item.image}}" alt="countryimage">
+<div class="header"><h2>HOTELLER OG DESTINATIONER</h2></div>
+<nav class="countrynav">
+  <div *ngFor="let country of countries.items; let i=index">
+    <div class="country" routerLink="/distinationer/{{country.id}}">{{country.name}}</div>
+   </div>
+</nav>
+<main>
+  <div class="pagegrid">
+  <div class="rooms">
+  <h4>Hotel Overlook > Hoteller og Destinationer > {{country.item.name}} > {{hotel.item.city_name}} > {{hotel.item.title}} {{hotel.item.city_name}} </h4>
+  <strong> <h2 class="header2">{{hotel.item.title}}<div class="stars">
+    <div class="stars" *ngFor="let dummy of ' '.repeat(hotel.item.num_stars).split(''), let x = index">
+     <img src="../../assets/star-images-9454.png" alt="">
+    </div>
+  </div></h2></strong>
+  <div class="desc"><p>{{hotel.item.description}}</p></div>
+  <h2 class="header2">Vores værelser</h2>
+  <div class="roomcard">
+    <img src="{{room.item.images[0].image}}" alt="roomimage">
+    <div class="description">
+      <div class="info">
+       <h2>{{room.item.title}}</h2>
+       <p>{{room.item.area}}. Plads til {{room.item.num_persons}} personer.</p>
+      </div>
+      <div class="img">
+        <div *ngFor="let image of room.item.images; let i=index">
+          <img src="{{image.image}}" alt="roomimage{{i}}">
+         </div>
+      </div>
+    </div>
+    <p>{{room.item.description}}</p>
+    <p><strong>Sengetyper:</strong></p>
+    <ng-container *ngFor="let seng of room.item.facilities;">
+      <ng-container *ngIf="seng.category === 'Senge'">
+        {{seng.title}}
+      </ng-container>
+    </ng-container>
+    <h2>Vores værelse er udstyret med:</h2>
+    <div class="faciliteter">
+      <div *ngFor="let faci of room.item.facilities; let i=index">
+        <div class="faci"> {{faci.title}}
+        </div>
+       </div>
+  </div>
+  <div class="bookings">
+    <div class="book"><p> <strong>NORMAL pris - inkl. morgenmad</strong></p>
+    <p>Kan ikke ændres eller afbestilles</p>
+  <p ><strong class="price">{{room.item.day_price_normal}}</strong>DKK/nat</p></div>
+    <div class="book"><p> <strong> FLEX pris - inkl. morgenmad</strong></p>
+      <p>Kan ændres eller afbestilles</p>
+    <p ><strong class="price">{{room.item.day_price_flex}}</strong>DKK/nat</p></div>
+  </div>
+  <button routerLink="/book/{{room.item.id}}/{{hotel.item.id}}">Book</button>
+  </div>
+  </div>
+  <div class="cities">
+    <h4>Hotel Information</h4>
+    <p class="adress"> {{hotel.item.address}}</p>
+    <p class="phone"> {{hotel.item.phone}}</p>
+    <h4>Faciliteter</h4>
+    <div *ngFor="let city of hotel.item.facilities; let i=index">
+      <p class="city" >{{city.title}}</p>
+     </div>
+  </div>
+  </div>
+</main>

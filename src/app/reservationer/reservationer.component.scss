@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+#reservationer{
+  width: 90%;
+  margin: auto;
+  .booking{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 5px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: silver;
+    margin-bottom: 2vh;
+    .redi{
+      color: green;
+    }
+    .slet{
+      color: red;
+      cursor: pointer;
+    }
+  }
+}
